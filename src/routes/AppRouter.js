@@ -7,7 +7,7 @@ import React from "react";
     } from "react-router-dom";
 
 import { LoginScreen } from '../components/login/LoginScreen';
-import { DataTable } from "../components/screens/DataTable";
+import { Table } from "../components/screens/DataTable";
 import { Gallery } from "../components/screens/Gallery";
 import { TodoList } from "../components/screens/TodoList";
 
@@ -20,7 +20,7 @@ export const AppRouter = () => {
         <div className="container mt-2">
                 <Switch>
                     <Route exact path="/login" component={ LoginScreen } />
-                    <Route exact path="/datatable" component={ DataTable } />
+                    <Route exact path="/datatable" component={ Table } />
                     <Route exact path="/gallery" component={ Gallery } />
                     <Route exact path="/todo" component={ TodoList } />
                     <Redirect to="/DataTable" />
