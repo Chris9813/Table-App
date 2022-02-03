@@ -20,6 +20,7 @@ export const Gallery = () => {
   };
 
   const handleSubmit = (e) => {
+    e.preventDefault();
     getData(photos);
   };
 
