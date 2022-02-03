@@ -27,14 +27,22 @@ export const Gallery = () => {
   return (
     <div>
       <section className="container">
-        <h1>Unsplash Gallery</h1>
-        <input
-          onChange={handleInputChange}
-          type="text"
-          name="photo"
-          placeholder="Search for Photos"
-        />
-        <button onClick={handleSubmit}>search</button>
+        <form onSubmit={handleSubmit}>
+          <h1 className="my-3">Unsplash Gallery</h1>
+          <input
+            onChange={handleInputChange}
+            type="text"
+            name="photo"
+            placeholder="Search for Photos"
+            className="form-control"
+          />
+          <button
+            className="btn btn-outline-primary my-3"
+            onClick={handleSubmit}
+          >
+            search
+          </button>
+        </form>
       </section>
       <br />
       {result.map((item, i) => (

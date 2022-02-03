@@ -49,7 +49,7 @@ export const TodoList = () => {
   return (
     <div>
       <form className="form-group" onSubmit={handleSubmit}>
-        <h1>FormWithCustomHook</h1>
+        <h1>TODO List</h1>
         <hr />
 
         <div>
@@ -64,7 +64,7 @@ export const TodoList = () => {
           ></input>
         </div>
 
-        <button type="submit" className="btn btn-primary">
+        <button type="submit" className="btn btn-primary my-2">
           submit
         </button>
       </form>

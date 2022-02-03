@@ -21,10 +21,6 @@ export const AppRouter = () => {
 
   const { uid } = useSelector((state) => state.auth);
 
-  const auth = () => {
-    localStorage.getItem("token") ? setisLoggedIn(true) : setisLoggedIn(false);
-  };
-
   useEffect(() => {
     dispatch(startCheking("chris", "1234"));
   }, [dispatch]);

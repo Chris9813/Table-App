@@ -215,14 +215,13 @@ export const Table = () => {
     </div>
   );
 
-  console.log(data);
-
   return (
     <div style={{ maxWidth: "100%" }}>
+      <h1>Data Table</h1>
+      <hr />
       <button className="btn btn-primary my-3" onClick={() => openCloseModal()}>
         Insert item
       </button>
-      <hr />
       <MaterialTable
         data={data}
         columns={columns}
