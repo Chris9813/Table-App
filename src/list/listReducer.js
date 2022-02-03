@@ -8,14 +8,10 @@ export const listReducer = (state = initialState, action) => {
   switch (action.type) {
     case types.edit:
       return {
-        /*
         ...state,
         todos: state.todos.map((e) =>
-          e.tableData.id === action.payload.event.tableData.id
-            ? action.payload.event.desc
-            : e
+          e.id === action.payload.id ? action.payload : e
         ),
-        */
       };
     case types.delete:
       return {};

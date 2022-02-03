@@ -84,6 +84,7 @@ export const ListItem = ({ todo }) => {
     dispatch(deltItem(itemSelect));
     openCloseModalDelete();
   };
+  console.log(itemSelect);
 
   const bodyEdit = (
     <div className={styles.modal}>
