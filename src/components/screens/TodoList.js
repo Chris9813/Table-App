@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { listAdd } from "../../actions/list";
+
 import { ListItem } from "./ListItem";
 
 export const TodoList = () => {
+  const dispatch = useDispatch();
   const initialState = [];
   const [todo, settodo] = useState(initialState);
 
@@ -21,23 +25,24 @@ export const TodoList = () => {
   };
 
   const [formValues, handleInputChange] = useForm({
-    name: "",
+    desc: "",
   });
 
-  const { name } = formValues;
+  const { desc } = formValues;
 
   const itemTodo = {
     id: new Date(),
-    desc: name,
+    desc: desc,
   };
 
-  console.log(todo);
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (name.length === 0) {
+    if (desc.length === 0) {
       return;
     }
+    console.log(itemTodo);
     settodo([...todo, itemTodo]);
+    dispatch(listAdd(itemTodo));
     console.log(formValues);
   };
 
@@ -50,11 +55,11 @@ export const TodoList = () => {
         <div>
           <input
             type="text"
-            name="name"
+            name="desc"
             placeholder="tu nombre"
             autoComplete="off"
             className="form-control"
-            value={name}
+            value={desc}
             onChange={handleInputChange}
           ></input>
         </div>

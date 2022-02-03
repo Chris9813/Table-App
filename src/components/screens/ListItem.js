@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { Modal, TextField, Button } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import MaterialTable from "material-table";
+import { useDispatch, useSelector } from "react-redux";
+import { deltItem, editTodo } from "../../actions/list";
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -24,6 +26,9 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export const ListItem = ({ todo }) => {
+  const dispatch = useDispatch();
+  const { todos } = useSelector((state) => state.list);
+
   const columns = [
     {
       title: "TODO",
@@ -50,6 +55,7 @@ export const ListItem = ({ todo }) => {
   };
 
   const [itemSelect, setItemSelect] = useState({
+    id: "",
     desc: "",
   });
 
@@ -66,6 +72,19 @@ export const ListItem = ({ todo }) => {
     cas === "editar" ? openCloseModalEdit() : openCloseModalDelete();
   };
 
+  const editList = () => {
+    console.log("aqui estoy");
+    dispatch(editTodo(itemSelect));
+    openCloseModalEdit();
+  };
+
+  const deletItemList = () => {
+    console.log("aqui estoy");
+    console.log(itemSelect);
+    dispatch(deltItem(itemSelect));
+    openCloseModalDelete();
+  };
+
   const bodyEdit = (
     <div className={styles.modal}>
       <h3>Edit Item</h3>
@@ -73,29 +92,16 @@ export const ListItem = ({ todo }) => {
       <TextField
         className={styles.inputMaterial}
         label="Title"
-        name="title"
+        name="desc"
         onChange={handleInputChange}
-        value={itemSelect && itemSelect.title}
-      />
-      <br />
-      <TextField
-        className={styles.inputMaterial}
-        label="Description"
-        name="body"
-        onChange={handleInputChange}
-        value={itemSelect && itemSelect.body}
-      />
-      <TextField
-        className={styles.inputMaterial}
-        label="userId"
-        name="userId"
-        onChange={handleInputChange}
-        value={itemSelect && itemSelect.userId}
+        value={itemSelect && itemSelect.desc}
       />
 
       <br />
       <div align="right">
-        <Button color="primary">Editar</Button>
+        <Button color="primary" onClick={() => editList()}>
+          Editar
+        </Button>
         <Button onClick={() => openCloseModalEdit()}>Cancelar</Button>
       </div>
     </div>
@@ -104,11 +110,13 @@ export const ListItem = ({ todo }) => {
   const bodyEliminar = (
     <div className={styles.modal}>
       <p>
-        Estás seguro que deseas eliminar el item
-        <b>{itemSelect && itemSelect.title}</b>?
+        Estás seguro que deseas eliminar el item:{" "}
+        <b>{itemSelect && itemSelect.desc}</b>?
       </p>
       <div align="right">
-        <Button color="secondary">Sí</Button>
+        <Button color="secondary" onClick={() => deletItemList()}>
+          Sí
+        </Button>
         <Button onClick={() => openCloseModalDelete()}>No</Button>
       </div>
     </div>
@@ -117,7 +125,7 @@ export const ListItem = ({ todo }) => {
   return (
     <div className="container my-3" style={{ maxWidth: "100%" }}>
       <MaterialTable
-        data={data}
+        data={todos}
         columns={columns}
         title="TODO Table"
         actions={[
