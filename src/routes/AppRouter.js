@@ -1,33 +1,53 @@
-import React from "react";
-    import {
-        BrowserRouter as Router,
-        Switch,
-        Route,
-        Redirect,
-    } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 
-import { LoginScreen } from '../components/login/LoginScreen';
-import { Table } from "../components/screens/DataTable";
-import { Gallery } from "../components/screens/Gallery";
-import { TodoList } from "../components/screens/TodoList";
-
+import { LoginScreen } from "../components/login/LoginScreen";
+import { DeshboardRoutes } from "./DeshboardRoutes";
+import { PrivateRoute } from "./PrivateRoute";
+import { PublicRoute } from "./PublicRoute";
+import { startCheking } from "../actions/auth";
 
 export const AppRouter = () => {
+  const dispatch = useDispatch();
+  const [isLoggedIn, setisLoggedIn] = useState(false);
 
-    return (
-        <div>
-        <Router>
-        <div className="container mt-2">
-                <Switch>
-                    <Route exact path="/login" component={ LoginScreen } />
-                    <Route exact path="/datatable" component={ Table } />
-                    <Route exact path="/gallery" component={ Gallery } />
-                    <Route exact path="/todo" component={ TodoList } />
-                    <Redirect to="/DataTable" />
-                </Switch>
-            </div>
-    </Router>
+  console.log(localStorage.getItem("token"));
+
+  const { uid } = useSelector((state) => state.auth);
+
+  const auth = () => {
+    localStorage.getItem("token") ? setisLoggedIn(true) : setisLoggedIn(false);
+  };
+
+  useEffect(() => {
+    dispatch(startCheking("chris", "1234"));
+  }, [dispatch]);
+
+  return (
+    <div>
+      <Router>
+        <div className="">
+          <Switch>
+            <PublicRoute
+              exact
+              path="/login"
+              component={LoginScreen}
+              isAuthenticated={!!uid}
+            />
+            <PrivateRoute
+              path="/"
+              component={DeshboardRoutes}
+              isAuthenticated={!!uid}
+            />
+          </Switch>
         </div>
-        
-    )
-}
+      </Router>
+    </div>
+  );
+};

@@ -36,12 +36,6 @@ export const ListItem = ({ todo }) => {
     },
   ];
 
-  const [data, setData] = useState(todo);
-
-  useEffect(() => {
-    setData(todo);
-  }, [todo]);
-
   const styles = useStyles();
   const [modalEdit, setModalEdit] = useState(false);
   const [modalDelete, setModalDelete] = useState(false);

@@ -24,7 +24,7 @@ export const TodoList = () => {
     return [values, handleInnputChange, reset];
   };
 
-  const [formValues, handleInputChange] = useForm({
+  const [formValues, handleInputChange, reset] = useForm({
     desc: "",
   });
 
@@ -43,7 +43,7 @@ export const TodoList = () => {
     console.log(itemTodo);
     settodo([...todo, itemTodo]);
     dispatch(listAdd(itemTodo));
-    console.log(formValues);
+    reset();
   };
 
   return (
