@@ -3,11 +3,6 @@ html {
   --sec-color: #000000ab;
 }
 
-html[data-theme="dark"] {
-  --primary-color: #1c1c1c;
-  --sec-color: #eff4f5f5;
-}
-
 body {
   margin: 0;
   font-family: var(--bs-body-font-family);
@@ -19,16 +14,6 @@ body {
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: #564a4a00;
   background-color: var(--primary-color);
-}
-
-span {
-  color: white;
-}
-
-.MuiTableCell-head {
-  color: rgb(0 0 0 / 87%);
-  font-weight: 500;
-  line-height: 1.5rem;
 }
 
 .login-block {
@@ -101,45 +86,6 @@ span {
   padding: 10px 16px;
   font-size: 15px;
   line-height: 23px;
-}
-
-.btn-primary {
-  background-color: #4099ff;
-  border-color: #4099ff;
-  color: #fff;
-  cursor: pointer;
-  -webkit-transition: all ease-in 0.3s;
-  transition: all ease-in 0.3s;
-}
-
-.btn {
-  border-radius: 2px;
-  text-transform: capitalize;
-  font-size: 15px;
-  padding: 10px 19px;
-  cursor: pointer;
-  align-items: center;
-}
-
-.m-b-20 {
-  margin-bottom: 20px;
-  display: flex;
-  align-items: center !important;
-  align-content: center;
-}
-
-.btn-md {
-  padding: 10px 16px;
-  font-size: 15px;
-  line-height: 23px;
-}
-
-.heading {
-  font-size: 21px;
-}
-
-#infoMessage p {
-  color: red !important;
 }
 
 .btn-google {
