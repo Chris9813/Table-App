@@ -14,7 +14,10 @@ export const listReducer = (state = initialState, action) => {
         ),
       };
     case types.delete:
-      return {};
+      return {
+        ...state,
+        todos: state.todos.filter((e) => e.id !== action.payload.id),
+      };
 
     case types.add:
       return {
