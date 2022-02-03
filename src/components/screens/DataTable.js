@@ -27,10 +27,6 @@ const useStyles = makeStyles((theme) => ({
 export const Table = () => {
   const columns = [
     {
-      title: "id",
-      field: "id",
-    },
-    {
       title: "Title",
       field: "title",
     },
@@ -123,9 +119,8 @@ export const Table = () => {
   };
 
   const selectItem = (item, cas) => {
-    setItemSelect(item)
-      ? cas === "editar" && openCloseModalEdit()
-      : openCloseModalDelete();
+    setItemSelect(item);
+    cas === "editar" ? openCloseModalEdit() : openCloseModalDelete();
   };
 
   useEffect(() => {
