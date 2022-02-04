@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/Table-App/static/css/main.ddfc6a2f.css",
+    "main.js": "/Table-App/static/js/main.a270c43b.js",
+    "static/js/498.1233f7ed.chunk.js": "/Table-App/static/js/498.1233f7ed.chunk.js",
+    "static/js/703.cbe61862.chunk.js": "/Table-App/static/js/703.cbe61862.chunk.js",
+    "static/js/478.15f4560c.chunk.js": "/Table-App/static/js/478.15f4560c.chunk.js",
+    "index.html": "/Table-App/index.html",
+    "main.ddfc6a2f.css.map": "/Table-App/static/css/main.ddfc6a2f.css.map",
+    "main.a270c43b.js.map": "/Table-App/static/js/main.a270c43b.js.map",
+    "498.1233f7ed.chunk.js.map": "/Table-App/static/js/498.1233f7ed.chunk.js.map",
+    "703.cbe61862.chunk.js.map": "/Table-App/static/js/703.cbe61862.chunk.js.map",
+    "478.15f4560c.chunk.js.map": "/Table-App/static/js/478.15f4560c.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ddfc6a2f.css",
+    "static/js/main.a270c43b.js"
+  ]
+}
